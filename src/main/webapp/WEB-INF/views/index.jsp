@@ -27,7 +27,7 @@ Hello : Accident
             <th scope="col">Пользователь</th>
         </tr>
 
-        <c:forEach var="l" items="${tableList}">
+        <c:forEach var="l" items="${accidentList}">
             <tr><td><c:out value="${l}"/></td></tr>
         </c:forEach>
 
