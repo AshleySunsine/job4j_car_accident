@@ -3,6 +3,7 @@ package ru.job4j.accident.service;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.HashMap;
@@ -24,6 +25,9 @@ public class AccidentService {
         acc1.setId(1);
         acc2.setId(2);
         acc3.setId(3);
+        acc1.setType(AccidentType.of(1, "Две машины"));
+        acc2.setType(AccidentType.of(2, "Машина и человек"));
+        acc3.setType(AccidentType.of(3, "Машина и велосипед"));
         accidents.put(1, acc1);
         accidents.put(2, acc2);
         accidents.put(3, acc3);
