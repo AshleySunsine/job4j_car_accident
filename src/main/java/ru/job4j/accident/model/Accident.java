@@ -1,6 +1,8 @@
 package ru.job4j.accident.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Accident {
     private int id;
@@ -8,6 +10,7 @@ public class Accident {
     private String text;
     private String address;
     private AccidentType type;
+    private Set<Rule> rules = new HashSet<>();
 
     public int getId() {
         return id;
@@ -49,6 +52,14 @@ public class Accident {
         this.type = type;
     }
 
+    public Set<Rule> getRules() {
+        return rules;
+    }
+
+    public void setRules(Set<Rule> rules) {
+        this.rules = rules;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -58,22 +69,23 @@ public class Accident {
             return false;
         }
         Accident accident = (Accident) o;
-        return id == accident.id && Objects.equals(name, accident.name) && Objects.equals(text, accident.text) && Objects.equals(address, accident.address) && Objects.equals(type, accident.type);
+        return id == accident.id && Objects.equals(name, accident.name) && Objects.equals(text, accident.text) && Objects.equals(address, accident.address) && Objects.equals(type, accident.type) && Objects.equals(rules, accident.rules);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, text, address, type);
+        return Objects.hash(id, name, text, address, type, rules);
     }
 
     @Override
     public String toString() {
         return "Accident{"
-               + "id=" + id
-               + ", name='" + name + '\''
-               + ", text='" + text + '\''
-               + ", address='" + address + '\''
-               + ", type=" + type.getName()
-               + '}';
+              + "id=" + id
+              + ", name='" + name + '\''
+              + ", text='" + text + '\''
+              + ", address='" + address + '\''
+              + ", type=" + type.getName()
+              + ", rules=" + rules
+              + '}';
     }
 }
