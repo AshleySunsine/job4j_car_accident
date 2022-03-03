@@ -31,7 +31,7 @@ Hello : Accident
 
         <c:forEach var="accident" items="${accidentList}">
             <tr><td>
-                <c:out value="${accident.name}"/>
+                <c:out value="${accident}"/>
                  <span>
                     <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
                  </span>
