@@ -1,5 +1,6 @@
 package ru.job4j.accident.service;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.repository.AccidentMem;
@@ -11,7 +12,7 @@ import java.util.Map;
 public class AccidentService {
     private AccidentMem accidentMem;
 
-    public void initMem() {
+    public AccidentService() {
         Map<Integer, Accident> accidents = new HashMap<>();
         Accident acc1 = new Accident();
         Accident acc2 = new Accident();
@@ -28,6 +29,7 @@ public class AccidentService {
     public Map<Integer, Accident> getAccidents() {
         if (accidentMem != null) {
             return accidentMem.getAccidents();
+
         }
         return null;
     }

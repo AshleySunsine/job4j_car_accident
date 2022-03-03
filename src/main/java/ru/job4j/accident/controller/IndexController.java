@@ -9,15 +9,15 @@ import ru.job4j.accident.service.AccidentService;
 @Controller
 public class IndexController {
     private AccidentMem acMem;
+    private AccidentService accidentService;
 
-    public IndexController(AccidentMem acMem) {
+    public IndexController(AccidentMem acMem, AccidentService accidentService) {
         this.acMem = acMem;
+        this.accidentService = accidentService;
     }
 
     @GetMapping("/")
     public String index(Model model) {
-        AccidentService accidentService = new AccidentService();
-        accidentService.initMem();
         model.addAttribute("accidentList", accidentService.getAccidents());
         return "index";
     }

@@ -21,6 +21,7 @@
 <body>
 Hello : Accident
 <div class="card-body">
+    <a href="<c:url value='/create'/>">Добавить инцидент</a>
     <table class="table table-striped table-secondary" id="notDoneTable">
         <thead>
         <tr>
