@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="ru.job4j.accident.model.Accident" %>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -28,8 +29,13 @@ Hello : Accident
             <th scope="col">Пользователь</th>
         </tr>
 
-        <c:forEach var="l" items="${accidentList}">
-            <tr><td><c:out value="${l}"/></td></tr>
+        <c:forEach var="accident" items="${accidentList}">
+            <tr><td>
+                <c:out value="${accident.name}"/>
+                 <span>
+                    <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
+                 </span>
+            </td></tr>
         </c:forEach>
 
         </thead>

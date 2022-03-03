@@ -7,6 +7,7 @@ import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class AccidentService {
@@ -20,6 +21,9 @@ public class AccidentService {
         acc1.setName("acc1");
         acc2.setName("acc2");
         acc3.setName("acc3");
+        acc1.setId(1);
+        acc2.setId(2);
+        acc3.setId(3);
         accidents.put(1, acc1);
         accidents.put(2, acc2);
         accidents.put(3, acc3);
@@ -32,5 +36,13 @@ public class AccidentService {
 
         }
         return null;
+    }
+
+    public void save(Accident accident) {
+        accidentMem.save(accident);
+    }
+
+    public Optional<Accident> findById(int id) {
+        return accidentMem.findById(id);
     }
 }
