@@ -28,7 +28,6 @@ public class AccidentMem {
         acc1.setType(AccidentType.of(1, "Две машины"));
         acc2.setType(AccidentType.of(2, "Машина и человек"));
         acc3.setType(AccidentType.of(3, "Машина и велосипед"));
-
         accidents.put(1, acc1);
         accidents.put(2, acc2);
         accidents.put(3, acc3);
