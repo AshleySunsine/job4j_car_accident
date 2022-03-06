@@ -5,8 +5,6 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentMem;
-
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -19,11 +17,7 @@ public class AccidentService {
     }
 
     public Map<Integer, Accident> getAccidents() {
-        if (accidentMem != null) {
-            return accidentMem.getAccidents();
-
-        }
-        return null;
+       return accidentMem != null ? accidentMem.getAccidents() : null;
     }
 
     public void save(Accident accident, String[] typeIds) {

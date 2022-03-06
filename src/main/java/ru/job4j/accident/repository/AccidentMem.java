@@ -50,6 +50,9 @@ public class AccidentMem {
     }
 
     public void save(Accident accident) {
+        String typeName = types.get(accident.getType().getId())
+                .getName();
+        accident.getType().setName(typeName);
         accidents.put(accident.getId(), accident);
     }
 
