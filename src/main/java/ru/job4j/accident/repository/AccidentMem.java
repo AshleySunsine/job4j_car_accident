@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 @Repository
 public class AccidentMem {
     private Map<Integer, Accident> accidents = new HashMap<>();
-    private final List<AccidentType> types = new ArrayList<>();
-    private final List<Rule> rules = new ArrayList<>();
+    private final Map<Integer, AccidentType> types = new HashMap<>();
+    private final Map<Integer, Rule> rules = new HashMap<>();
 
     public AccidentMem() {
         Accident acc1 = new Accident();
@@ -28,15 +28,21 @@ public class AccidentMem {
         acc1.setType(AccidentType.of(1, "Две машины"));
         acc2.setType(AccidentType.of(2, "Машина и человек"));
         acc3.setType(AccidentType.of(3, "Машина и велосипед"));
-        accidents.put(1, acc1);
-        accidents.put(2, acc2);
-        accidents.put(3, acc3);
-        types.add(AccidentType.of(1, "Две машины"));
-        types.add(AccidentType.of(2, "Машина и человек"));
-        types.add(AccidentType.of(3, "Машина и велосипед"));
-        rules.add(Rule.of(1, "Статья. 1"));
-        rules.add(Rule.of(2, "Статья. 2"));
-        rules.add(Rule.of(3, "Статья. 3"));
+        accidents.put(acc1.getId(), acc1);
+        accidents.put(acc2.getId(), acc2);
+        accidents.put(acc3.getId(), acc3);
+        AccidentType accType1 = AccidentType.of(1, "Две машины");
+        AccidentType accType2 = AccidentType.of(2, "Машина и человек");
+        AccidentType accType3 = AccidentType.of(3, "Машина и велосипед");
+        types.put(accType1.getId(), accType1);
+        types.put(accType2.getId(), accType2);
+        types.put(accType3.getId(), accType3);
+        Rule rule1 = Rule.of(1, "Статья. 1");
+        Rule rule2 = Rule.of(2, "Статья. 2");
+        Rule rule3 = Rule.of(3, "Статья. 3");
+        rules.put(rule1.getId(), rule1);
+        rules.put(rule2.getId(), rule2);
+        rules.put(rule3.getId(), rule3);
     }
 
     public Map<Integer, Accident> getAccidents() {
@@ -65,11 +71,11 @@ public class AccidentMem {
                 .collect(Collectors.toList()));
     }
 
-    public List<AccidentType> getAllTypes() {
+    public Map<Integer, AccidentType> getAllTypes() {
         return types;
     }
 
-    public List<Rule> getAllRules() {
+    public Map<Integer, Rule> getAllRules() {
         return rules;
     }
 

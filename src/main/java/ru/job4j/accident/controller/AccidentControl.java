@@ -29,21 +29,16 @@ public class AccidentControl {
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, HttpServletRequest req) {
-        String[] ids = req.getParameterValues("rIds");
         String typeName = accidentService.getAllTypes().get(accident.getType().getId())
                 .getName();
         accident.getType().setName(typeName);
-        for (var i : ids) {
-            accident.getRules().add(
-                    accidentService.getAllRules().stream().filter(rule -> rule.getId() == Integer.parseInt(i))
-                            .findFirst().get());
-        }
-        accidentService.save(accident);
+        accidentService.save(accident, req.getParameterValues("rIds"));
         return "redirect:/";
     }
 
     @GetMapping("/update")
     public String update(@RequestParam("id") int id, Model model) {
+
         model.addAttribute("accident", accidentService.findById(id).get());
         return "accident/update";
     }

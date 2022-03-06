@@ -26,7 +26,10 @@ public class AccidentService {
         return null;
     }
 
-    public void save(Accident accident) {
+    public void save(Accident accident, String[] typeIds) {
+        for (var i : typeIds) {
+            accident.getRules().add(accidentMem.getAllRules().get(i));
+        }
         accidentMem.save(accident);
     }
 
@@ -34,11 +37,11 @@ public class AccidentService {
         return accidentMem.findById(id);
     }
 
-    public List<AccidentType> getAllTypes() {
+    public Map<Integer, AccidentType> getAllTypes() {
         return accidentMem.getAllTypes();
     }
 
-    public List<Rule> getAllRules() {
+    public Map<Integer, Rule> getAllRules() {
         return accidentMem.getAllRules();
     }
 }
