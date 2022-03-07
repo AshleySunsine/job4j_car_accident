@@ -50,17 +50,17 @@ public class AccidentMem {
     }
 
     public void save(Accident accident) {
-        String typeName = types.get(accident.getType().getId())
+        /**String typeName = types.get(accident.getType().getId())
                 .getName();
         accident.getType().setName(typeName);
-        accidents.put(accident.getId(), accident);
+        accidents.put(accident.getId(), accident);**/
     }
 
     public Optional<Accident> findById(int id) {
         return Optional.of(accidents.get(id - 1));
     }
 
-    public Optional<List<Accident>> findByTypeId(int typeId) {
+    /**  public Optional<List<Accident>> findByTypeId(int typeId) {
         return Optional.of(accidents.values()
                 .stream()
                 .filter(ac -> (ac.getType().getId() == typeId))
@@ -68,11 +68,11 @@ public class AccidentMem {
     }
 
     public Optional<List<Accident>> findByType(AccidentType type) {
-        return Optional.of(accidents.values()
+       return Optional.of(accidents.values()
                 .stream()
                 .filter(ac -> (ac.getType().equals(type)))
                 .collect(Collectors.toList()));
-    }
+    }**/
 
     public Map<Integer, AccidentType> getAllTypes() {
         return types;

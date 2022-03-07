@@ -21,9 +21,9 @@ public class AccidentService {
     }
 
     public void save(Accident accident, String[] typeIds) {
-        for (var i : typeIds) {
-            accident.getRules().add(accidentMem.getAllRules().get(i));
-        }
+        /**   for (var i : typeIds) {
+           accident.getRules().add(accidentMem.getAllRules().get(i));
+        }**/
         accidentMem.save(accident);
     }
 

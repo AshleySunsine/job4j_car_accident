@@ -1,16 +1,21 @@
 package ru.job4j.accident.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Entity
+@Table (name = "accident")
 public class Accident {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String text;
+    /**  private String text;
     private String address;
     private AccidentType type;
-    private Set<Rule> rules = new HashSet<>();
+    private Set<Rule> rules = new HashSet<>();**/
 
     public int getId() {
         return id;
@@ -28,7 +33,7 @@ public class Accident {
         this.name = name;
     }
 
-    public String getText() {
+    /**    public String getText() {
         return text;
     }
 
@@ -58,7 +63,7 @@ public class Accident {
 
     public void setRules(Set<Rule> rules) {
         this.rules = rules;
-    }
+    }**/
 
     @Override
     public boolean equals(Object o) {
@@ -69,12 +74,14 @@ public class Accident {
             return false;
         }
         Accident accident = (Accident) o;
-        return id == accident.id && Objects.equals(name, accident.name) && Objects.equals(text, accident.text) && Objects.equals(address, accident.address) && Objects.equals(type, accident.type) && Objects.equals(rules, accident.rules);
+        return id == accident.id && Objects.equals(name, accident.name)
+                /**  && Objects.equals(text, accident.text)
+                && Objects.equals(address, accident.address)&& Objects.equals(type, accident.type) && Objects.equals(rules, accident.rules)**/;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, text, address, type, rules);
+        return Objects.hash(id, name/**, text, address, type, rules**/);
     }
 
     @Override
@@ -82,9 +89,9 @@ public class Accident {
         return "Accident{"
               + "id=" + id
               + ", name='" + name + '\''
-              + ", text='" + text + '\''
+                /**  + ", text='" + text + '\''
               + ", address='" + address + '\''
-             /** + ", type=" + type.getName()
+              + ", type=" + type.getName()
               + ", rules=" + rules**/
               + '}';
     }
