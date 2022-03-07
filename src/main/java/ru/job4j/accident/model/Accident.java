@@ -84,8 +84,8 @@ public class Accident {
               + ", name='" + name + '\''
               + ", text='" + text + '\''
               + ", address='" + address + '\''
-              + ", type=" + type.getName()
-              + ", rules=" + rules
+             /** + ", type=" + type.getName()
+              + ", rules=" + rules**/
               + '}';
     }
 }

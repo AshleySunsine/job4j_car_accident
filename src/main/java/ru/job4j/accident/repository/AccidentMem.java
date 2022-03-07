@@ -16,7 +16,7 @@ public class AccidentMem {
     private final Map<Integer, Rule> rules = new HashMap<>();
 
     public AccidentMem() {
-        Accident acc1 = new Accident();
+        /*Accident acc1 = new Accident();
         Accident acc2 = new Accident();
         Accident acc3 = new Accident();
         acc1.setName("acc1");
@@ -42,7 +42,7 @@ public class AccidentMem {
         Rule rule3 = Rule.of(3, "Статья. 3");
         rules.put(rule1.getId(), rule1);
         rules.put(rule2.getId(), rule2);
-        rules.put(rule3.getId(), rule3);
+        rules.put(rule3.getId(), rule3);*/
     }
 
     public Map<Integer, Accident> getAccidents() {

@@ -19,17 +19,6 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring.version>5.1.2.RELEASE</spring.version>
   </properties>
-  <profiles>
-    <profile>
-      <id>production</id>
-      <properties>
-        <db.url>jdbc:postgresql://127.0.0.1:5432/carAccident</db.url>
-        <db.username>postgres</db.username>
-        <db.password>password</db.password>
-        <db.driver>org.postgresql.Driver</db.driver>
-      </properties>
-    </profile>
-  </profiles>
 
   <dependencies>
     <dependency>
@@ -44,12 +33,6 @@
       <artifactId>junit</artifactId>
       <version>4.12</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>42.2.12</version>
     </dependency>
 
     <dependency>
@@ -138,6 +121,24 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.12</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.7.0</version>
     </dependency>
   </dependencies>
 

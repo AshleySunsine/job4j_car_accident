@@ -17,7 +17,7 @@ public class IndexController {
         this.accidentService = accidentService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/q")
     public String index(Model model) {
         List<Accident> list = new ArrayList<>(accidentService.getAccidents().values());
         model.addAttribute("accidentList", list);
