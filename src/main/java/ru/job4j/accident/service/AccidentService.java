@@ -4,26 +4,28 @@ import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentMem;
+import ru.job4j.accident.repository.AccidentJdbcTemplate;
+
 import java.util.Map;
 import java.util.Optional;
 
 @Service
 public class AccidentService {
-    private AccidentMem accidentMem;
+    private AccidentJdbcTemplate accidentMem;
 
-    public AccidentService(AccidentMem accidentMem) {
+    public AccidentService(AccidentJdbcTemplate accidentMem) {
+
         this.accidentMem = accidentMem;
     }
 
     public Map<Integer, Accident> getAccidents() {
-       return accidentMem != null ? accidentMem.getAccidents() : null;
+       return accidentMem != null ? accidentMem.getAll() : null;
     }
 
     public void save(Accident accident, String[] typeIds) {
-        /**   for (var i : typeIds) {
-           accident.getRules().add(accidentMem.getAllRules().get(i));
-        }**/
+           for (var i : typeIds) {
+           accident.getRules().add(accidentMem.getAllRules().get(Integer.parseInt(i)));
+        }
         accidentMem.save(accident);
     }
 

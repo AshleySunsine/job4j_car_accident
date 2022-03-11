@@ -9,3 +9,8 @@
 У заявки есть статус. Принята. Отклонена. Завершена.
 
 Вид системы. Главная страница - это поиск с таблицей.
+
+constraint fktdwgv8tx5j6tesqclbj7gy50u
+
+constraint uk_bf6ynrqoxw0uft5v7mi9lg8nw
+constraint fki7w0h11utxdbsqj9ddb943d7r

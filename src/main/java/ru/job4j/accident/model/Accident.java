@@ -12,10 +12,12 @@ public class Accident {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    /**  private String text;
+    private String text;
     private String address;
+    @OneToOne
     private AccidentType type;
-    private Set<Rule> rules = new HashSet<>();**/
+    @ManyToMany()
+    private Set<Rule> rules = new HashSet<>();
 
     public int getId() {
         return id;
@@ -33,7 +35,7 @@ public class Accident {
         this.name = name;
     }
 
-    /**    public String getText() {
+        public String getText() {
         return text;
     }
 
@@ -63,7 +65,7 @@ public class Accident {
 
     public void setRules(Set<Rule> rules) {
         this.rules = rules;
-    }**/
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -75,13 +77,13 @@ public class Accident {
         }
         Accident accident = (Accident) o;
         return id == accident.id && Objects.equals(name, accident.name)
-                /**  && Objects.equals(text, accident.text)
-                && Objects.equals(address, accident.address)&& Objects.equals(type, accident.type) && Objects.equals(rules, accident.rules)**/;
+                 && Objects.equals(text, accident.text)
+                && Objects.equals(address, accident.address)&& Objects.equals(type, accident.type) && Objects.equals(rules, accident.rules);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name/**, text, address, type, rules**/);
+        return Objects.hash(id, name, text, address, type, rules);
     }
 
     @Override
@@ -89,10 +91,10 @@ public class Accident {
         return "Accident{"
               + "id=" + id
               + ", name='" + name + '\''
-                /**  + ", text='" + text + '\''
+                  + ", text='" + text + '\''
               + ", address='" + address + '\''
-              + ", type=" + type.getName()
-              + ", rules=" + rules**/
+              //+ ", type=" + type.getName()
+              + ", rules=" + rules
               + '}';
     }
 }

@@ -32,8 +32,8 @@ Hello : Accident
             <tr><td>
                 <c:out value="${accident}"/>
                 <span>
-            <!-- <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
-              -->
+             <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
+
         </span>
             </td></tr>
         </c:forEach>
