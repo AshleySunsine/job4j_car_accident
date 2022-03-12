@@ -7,9 +7,6 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
 
 @Repository
@@ -21,27 +18,34 @@ public class AccidentHibernate {
     }
 
     public Accident save(Accident accident) {
+        System.out.println(accident);
         try (Session session = sf.openSession()) {
+            session.beginTransaction();
             session.save(accident);
+            session.getTransaction().commit();
             return accident;
         }
     }
 
-    public List<Accident> getAll() {
-        List<Accident> accidents = new ArrayList<>();
+    public Map<Integer, Accident> getAll() {
+        List<Accident> accidentsList;
+        Map<Integer, Accident> accidents = new HashMap<>();
         try (Session session = sf.openSession()) {
-            accidents = session
-                    .createQuery("from Accident", Accident.class)
+            accidentsList = session
+                    .createQuery("from Accident ac join fetch ac.rules")
                     .list();
+        }
+        for (var accident : accidentsList) {
+            accidents.put(accident.getId(), accident);
         }
         return accidents;
     }
 
     public Optional<Accident> findById(int id) {
-        Accident acc = new Accident();
+        Accident acc;
         try (Session session = sf.openSession()) {
             acc = (Accident) session
-                    .createQuery("from Accident where id = :Id")
+                    .createQuery("from Accident ac join fetch ac.rules where ac.id = :Id")
                     .setParameter("Id", id)
                     .uniqueResult();
         }
@@ -50,10 +54,10 @@ public class AccidentHibernate {
     }
 
     public Map<Integer, AccidentType> getAllTypes() {
-        List<AccidentType> types = new ArrayList<>();
+        List<AccidentType> types;
         try (Session session = sf.openSession()) {
             types = session
-                    .createQuery("from AccidentType ", AccidentType.class)
+                    .createQuery("from AccidentType ")
                     .list();
         }
         Map<Integer, AccidentType> typeMap = new HashMap<>();
@@ -64,7 +68,7 @@ public class AccidentHibernate {
     }
 
     public Map<Integer, Rule> getAllRules() {
-        List<Rule> rules = new ArrayList<>();
+        List<Rule> rules;
         try (Session session = sf.openSession()) {
             rules = session
                     .createQuery("from Rule ", Rule.class)

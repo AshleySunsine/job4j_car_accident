@@ -20,6 +20,7 @@ public class IndexController {
     @GetMapping("/a")
     public String index(Model model) {
         List<Accident> list = new ArrayList<>(accidentJdbcTemplate.getAll().values());
+        System.out.println(list);
         model.addAttribute("accidentList", list);
         return "index";
     }

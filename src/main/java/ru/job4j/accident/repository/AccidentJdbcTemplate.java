@@ -49,12 +49,13 @@ public class AccidentJdbcTemplate {
 
     public Map<Integer, Accident> getAll() {
         Map<Integer, Accident> accidentMap = new HashMap<>();
-        jdbc.query("select id, name from accident",
+        jdbc.query("select id, name, text from accident",
                 (rs, row) -> {
             Accident accident = new Accident();
             int id = rs.getInt("id");
             accident.setId(id);
             accident.setName(rs.getString("name"));
+            accident.setText(rs.getString("text"));
             accidentMap.put(id, accident);
             return accident;
         });

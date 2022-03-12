@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
+import ru.job4j.accident.repository.AccidentHibernate;
 import ru.job4j.accident.repository.AccidentJdbcTemplate;
 
 import java.util.Map;
@@ -11,9 +12,9 @@ import java.util.Optional;
 
 @Service
 public class AccidentService {
-    private AccidentJdbcTemplate accidentMem;
+    private AccidentHibernate accidentMem;
 
-    public AccidentService(AccidentJdbcTemplate accidentMem) {
+    public AccidentService(AccidentHibernate accidentMem) {
 
         this.accidentMem = accidentMem;
     }
@@ -23,6 +24,7 @@ public class AccidentService {
     }
 
     public void save(Accident accident, String[] typeIds) {
+        System.out.println(accident.getType() + "dsvsdvzsdvdva");
            for (var i : typeIds) {
            accident.getRules().add(accidentMem.getAllRules().get(Integer.parseInt(i)));
         }

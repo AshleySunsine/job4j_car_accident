@@ -16,7 +16,7 @@ public class Accident {
     private String address;
     @OneToOne
     private AccidentType type;
-    @ManyToMany()
+    @ManyToMany
     private Set<Rule> rules = new HashSet<>();
 
     public int getId() {

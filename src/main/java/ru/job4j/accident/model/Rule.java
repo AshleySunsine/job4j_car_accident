@@ -51,10 +51,11 @@ import java.util.Objects;
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "Rule{"
-              + "name='" + name + '\''
-              + '}';
-    }
-}
+      @Override
+      public String toString() {
+          return "Rule{" +
+                  "id=" + id +
+                  ", name='" + name + '\'' +
+                  '}';
+      }
+  }
