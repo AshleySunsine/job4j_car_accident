@@ -91,9 +91,9 @@ public class Accident {
         return "Accident{"
               + "id=" + id
               + ", name='" + name + '\''
-                  + ", text='" + text + '\''
+              + ", text='" + text + '\''
               + ", address='" + address + '\''
-              //+ ", type=" + type.getName()
+              + ", type=" + type.getName()
               + ", rules=" + rules
               + '}';
     }
