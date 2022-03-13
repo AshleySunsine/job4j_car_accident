@@ -24,20 +24,6 @@ public class AccidentJdbcTemplate {
     }
 
     public Accident save(Accident accident) {
-       /* String typeName = "";
-        try {
-            PreparedStatement ps = jdbc.getDataSource()
-                    .getConnection()
-                    .prepareStatement("select name from AccidentType where id = ?");
-            ps.setInt(1, accident.getType().getId());
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                typeName = rs.getString("name");
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }*/
-
         jdbc.update("insert into accident (name, type_id) values (?, ?)",
                 accident.getName(), accident.getType().getId());
         for (var r : accident.getRules()) {
