@@ -16,7 +16,7 @@ public class Accident {
     private String address;
     @OneToOne
     private AccidentType type;
-    @ManyToMany
+    @ManyToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Rule> rules = new HashSet<>();
 
     public int getId() {

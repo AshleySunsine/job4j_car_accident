@@ -95,7 +95,10 @@ public class AccidentJdbcTemplate {
 
     public Map<Integer, Accident> getAll() {
         Map<Integer, Accident> accidentMap = new HashMap<>();
-        jdbc.query("select accident.id, accident.name, accident.text, accident.address, accidenttype.id as accidenttypeId , accidenttype.name as accidenttypeName from accident join accidenttype on accidenttype.id = accident.type_id",
+        jdbc.query("select accident.id, accident.name, accident.text, accident.address, "
+                        + "accidenttype.id as accidenttypeId ,"
+                        + " accidenttype.name as accidenttypeName "
+                        + "from accident join accidenttype on accidenttype.id = accident.type_id",
                 (rs, row) -> {
             Accident accident = new Accident();
             AccidentType accidentType = new AccidentType();
