@@ -17,7 +17,7 @@ public class IndexControlHiber {
         this.accidents = accidents;
     }
 
-    @GetMapping("/")
+    @GetMapping("/a")
     public String index(Model model) {
         List<Accident> list = new ArrayList<>(accidents.getAll().values());
         model.addAttribute("accidentList", list);

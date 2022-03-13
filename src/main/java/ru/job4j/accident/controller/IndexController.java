@@ -17,10 +17,9 @@ public class IndexController {
         this.accidentJdbcTemplate = accidentJdbcTemplate;
     }
 
-    @GetMapping("/a")
+    @GetMapping("/")
     public String index(Model model) {
         List<Accident> list = new ArrayList<>(accidentJdbcTemplate.getAll().values());
-        System.out.println(list);
         model.addAttribute("accidentList", list);
         return "index";
     }

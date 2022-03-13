@@ -12,9 +12,9 @@ import java.util.Optional;
 
 @Service
 public class AccidentService {
-    private AccidentHibernate accidentMem;
+    private AccidentJdbcTemplate accidentMem;
 
-    public AccidentService(AccidentHibernate accidentMem) {
+    public AccidentService(AccidentJdbcTemplate accidentMem) {
 
         this.accidentMem = accidentMem;
     }
