@@ -78,7 +78,7 @@ public class Accident {
         Accident accident = (Accident) o;
         return id == accident.id && Objects.equals(name, accident.name)
                  && Objects.equals(text, accident.text)
-                && Objects.equals(address, accident.address)&& Objects.equals(type, accident.type) && Objects.equals(rules, accident.rules);
+                && Objects.equals(address, accident.address) && Objects.equals(type, accident.type) && Objects.equals(rules, accident.rules);
     }
 
     @Override

@@ -53,9 +53,9 @@ import java.util.Objects;
 
       @Override
       public String toString() {
-          return "Rule{" +
-                  "id=" + id +
-                  ", name='" + name + '\'' +
-                  '}';
+          return "Rule{"
+                 + "id=" + id
+                 + ", name='" + name + '\''
+                 + '}';
       }
   }
