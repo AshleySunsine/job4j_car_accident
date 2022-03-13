@@ -7,8 +7,10 @@
         <tr>
             <td>Название:</td>
             <td><input type='text' name='name' value="${accident.name}"></td>
-            <td><input type='text' name='typeId' value="${accidentType}"></td>
+            <td><input type='text' name='type.id' value="${accidentType}"></td>
             <td><input type='text' name='rIds' value="${accidentRules}"></td>
+            <td><input type='text' name='address' value="${accidentAdress}"></td>
+            <td><input type='text' name='text' value="${accidentText}"></td>
         </tr>
         <tr>
         <tr>

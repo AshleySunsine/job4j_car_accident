@@ -27,6 +27,15 @@ public class AccidentHibernate {
         }
     }
 
+    public Accident update(Accident accident) {
+        try (Session session = sf.openSession()) {
+            session.beginTransaction();
+            session.update(accident);
+            session.getTransaction().commit();
+            return accident;
+        }
+    }
+
     public Map<Integer, Accident> getAll() {
         List<Accident> accidentsList;
         Map<Integer, Accident> accidents = new HashMap<>();

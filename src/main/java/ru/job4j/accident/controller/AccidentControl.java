@@ -43,7 +43,7 @@ public class AccidentControl {
                 .replace("]", "")
                 .replaceAll("\\s+", "")
                 .split(",");
-        accidentService.save(accident, rIds);
+            accidentService.save(accident, rIds);
         return "redirect:/";
     }
 
@@ -55,6 +55,10 @@ public class AccidentControl {
         model.addAttribute("accident", accident);
         model.addAttribute("accidentRules", ruleIds);
         model.addAttribute("accidentType", accident.getType().getId());
+        model.addAttribute("accidentText", accident.getText());
+        model.addAttribute("accidentAdress", accident.getAddress());
+        model.addAttribute("types", accidentService.getAllTypes().values());
+        model.addAttribute("rules", accidentService.getAllRules().values());
         return "accident/update";
     }
 

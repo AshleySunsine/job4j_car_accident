@@ -24,11 +24,14 @@ public class AccidentService {
     }
 
     public void save(Accident accident, String[] typeIds) {
-        System.out.println(accident.getType() + "dsvsdvzsdvdva");
            for (var i : typeIds) {
            accident.getRules().add(accidentMem.getAllRules().get(Integer.parseInt(i)));
         }
-        accidentMem.save(accident);
+           if (accident.getId() == 0) {
+               accidentMem.save(accident);
+           } else {
+               accidentMem.update(accident);
+           }
     }
 
     public Optional<Accident> findById(int id) {
