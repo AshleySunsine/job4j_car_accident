@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,7 +20,11 @@
     <title>Accident</title>
 </head>
 <body>
-Hello : Accident
+Hello : <c:out value='${user.username}'/>
+<form name='login' action="<c:url value='/logout'/>" method='POST'>
+    <input type="hidden"  name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <button type="submit" class="btn btn-primary">Выйти</button>
+</form>
 <div class="card-body">
     <a href="<c:url value='/create'/>">Добавить инцидент</a>
     <table class="table table-striped table-secondary" id="notDoneTable">

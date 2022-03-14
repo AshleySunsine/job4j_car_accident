@@ -7,7 +7,6 @@ import org.springframework.web.servlet.DispatcherServlet;
 import ru.job4j.accident.config.*;
 
 import javax.servlet.FilterRegistration;
-import javax.servlet.Registration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 

@@ -1,5 +1,6 @@
 package ru.job4j.accident.controller;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ public class IndexControlData {
         List<Accident> res = new ArrayList<>();
         accidents.findAll().forEach(res::add);
         model.addAttribute("accidentList", res);
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "index";
     }
 }
