@@ -129,13 +129,13 @@ public class AccidentJdbcTemplate {
         try {
             PreparedStatement ps = jdbc.getDataSource()
                     .getConnection()
-                    .prepareStatement("select accident.id, \n"
-                           + "accident.name, \n"
-                           + "accident.text, \n"
-                           + "accident.address, \n"
-                           + "accidenttype.id as accidenttypeId, \n"
-                           + "accidenttype.name as accidenttypeName \n"
-                           + "from accident, accidenttype where accident.id = ? \n"
+                    .prepareStatement("select accident.id, "
+                           + "accident.name, "
+                           + "accident.text, "
+                           + "accident.address, "
+                           + "accidenttype.id as accidenttypeId, "
+                           + "accidenttype.name as accidenttypeName "
+                           + "from accident, accidenttype where accident.id = ? "
                            + "and accidenttype.id = accident.type_id");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
