@@ -62,13 +62,12 @@ public class AccidentHibernate {
     }
 
     public Optional<Accident> findById(int id) {
-        return Optional.of(
-                this.tx(session -> {
-            return (Accident) session
+        return this.tx(session -> {
+            return Optional.ofNullable((Accident) session
                     .createQuery("from Accident ac join fetch ac.rules where ac.id = :Id")
                     .setParameter("Id", id)
-                    .uniqueResult();
-        }));
+                    .uniqueResult());
+        });
 
     }
 
