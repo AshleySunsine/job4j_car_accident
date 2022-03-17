@@ -38,7 +38,6 @@ Hello : <c:out value='${user.username}'/>
                 <c:out value="${accident}"/>
                 <span>
              <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
-
         </span>
             </td></tr>
         </c:forEach>
